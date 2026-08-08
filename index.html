@@ -1,28 +1,42 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday Selina!</title>
-    
-    <!-- Link to your CSS file (no folder path needed) -->
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#010103">
+  <title>Für Selina ❤️</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Montserrat:wght@300;400;700&family=Playfair+Display:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Container for the animated background -->
-    <canvas id="starsCanvas"></canvas>
+  <canvas id="star-canvas" aria-hidden="true"></canvas>
 
-    <!-- Main content container -->
-    <div class="content-container">
-        <h1>Alles Gute zum Geburtstag, Selina!</h1>
-        
-        <!-- Container where your 3D heart will be rendered -->
-        <div id="heart-container"></div>
+  <section id="start-screen" aria-label="Geburtstagsseite starten">
+    <h1>Für Selina ❤️</h1>
+    <p>Klicke irgendwo, um die Überraschung zu starten</p>
+  </section>
+
+  <main id="scene">
+    <div id="core-glow" aria-hidden="true"></div>
+    <canvas id="heart-canvas" aria-label="3D-Herz aus Worten"></canvas>
+    <div id="hint">Ziehe zum Drehen · Mausrad zum Zoomen</div>
+    <button id="reveal-btn" type="button">Deine Überraschung</button>
+
+    <div id="letter-overlay">
+      <article id="letter-content">
+        <h1>Alles Gute, <span>Selina</span> ❤️</h1>
+        <p>Heute geht es nur um dich – um dein Lachen, deine Art und all die schönen Momente, die wir miteinander haben.</p>
+        <p>Ich wünsche dir von Herzen einen wunderschönen Geburtstag und ganz viele Momente, an die du dich noch lange erinnern wirst.</p>
+        <p>Danke, dass du so ein besonderer Mensch bist. Ich hoffe, dieses kleine Geschenk bringt dir genauso viel Freude, wie es mir gemacht hat, es für dich zu bauen.</p>
+        <p class="signature">Für immer dein ❤️</p>
+      </article>
     </div>
+  </main>
 
-    <!-- Links to your JavaScript files (no folder paths needed) -->
-    <script src="stars.js"></script>
-    <script src="heart.js"></script>
-    <script src="app.js"></script>
+  <script src="stars.js"></script>
+  <script src="heart.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
