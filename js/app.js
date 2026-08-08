@@ -1,59 +1,25 @@
-(function () {
-  const startScreen = document.getElementById('start-screen');
-  const scene = document.getElementById('scene');
-  const starCanvas = document.getElementById('star-canvas');
-  const hint = document.getElementById('hint');
-  const revealBtn = document.getElementById('reveal-btn');
-  const coreGlow = document.getElementById('core-glow');
-  const letterOverlay = document.getElementById('letter-overlay');
-  const audio = document.getElementById('bg-music');
+const toast = document.querySelector('.toast');
+const year = document.querySelector('#year');
+year.textContent = new Date().getFullYear();
 
-  // Keep the page working even when the optional music element/file is unavailable.
-  function startMusic() {
-    if (!audio) return;
+document.querySelectorAll('.surprise-button').forEach(button => {
+  button.addEventListener('click', () => {
+    toast.classList.add('show');
+    celebrate();
+    window.setTimeout(() => toast.classList.remove('show'), 3200);
+  });
+});
 
-    audio.volume = 0;
-    const playPromise = audio.play();
-    if (playPromise && typeof playPromise.then === 'function') {
-      playPromise.then(() => {
-        let vol = 0;
-        const fade = setInterval(() => {
-          if (vol < 0.6) {
-            vol = Math.min(0.6, vol + 0.02);
-            audio.volume = vol;
-          } else {
-            clearInterval(fade);
-          }
-        }, 100);
-      }).catch(() => {
-        // Autoplay can be blocked by the browser; the rest of the experience still works.
-      });
-    }
+function celebrate() {
+  const colors = ['#f08cae', '#f3c978', '#9ba9ff', '#ffffff'];
+  for (let i = 0; i < 48; i++) {
+    const piece = document.createElement('i');
+    piece.className = 'confetti';
+    piece.style.left = `${Math.random() * 100}vw`;
+    piece.style.background = colors[Math.floor(Math.random() * colors.length)];
+    piece.style.animationDelay = `${Math.random() * .35}s`;
+    piece.style.transform = `rotate(${Math.random() * 360}deg)`;
+    document.body.appendChild(piece);
+    window.setTimeout(() => piece.remove(), 2300);
   }
-
-  if (startScreen) {
-    startScreen.addEventListener('click', function start() {
-      this.style.opacity = '0';
-      setTimeout(() => { this.style.display = 'none'; }, 2000);
-
-      startMusic();
-
-      if (scene) scene.style.opacity = '1';
-      if (starCanvas) starCanvas.style.opacity = '1';
-      if (hint) setTimeout(() => { hint.style.opacity = '1'; }, 1000);
-      if (revealBtn) setTimeout(() => { revealBtn.classList.add('visible'); }, 3000);
-    }, { once: true });
-  }
-
-  if (revealBtn) {
-    revealBtn.addEventListener('click', function () {
-      this.classList.remove('visible');
-      if (hint) hint.style.opacity = '0';
-      if (window.heartScene) window.heartScene.explode();
-      if (coreGlow) coreGlow.style.opacity = '0';
-      if (letterOverlay) {
-        setTimeout(() => { letterOverlay.classList.add('open'); }, 1200);
-      }
-    }, { once: true });
-  }
-})();
+}

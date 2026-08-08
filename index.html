@@ -1,35 +1,69 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Für Selina ❤️</title>
-  <meta name="description" content="Ein interaktives 3D-Geburtstagsgeschenk für Selina.">
-  <meta property="og:title" content="Für Selina ❤️">
-  <meta property="og:description" content="Ein interaktives 3D-Geburtstagsgeschenk.">
-  <meta name="theme-color" content="#010103">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.85em' font-size='85'%3E%E2%9D%A4%EF%B8%8F%3C/text%3E%3C/svg%3E">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0c1024">
+  <meta name="description" content="Eine kleine digitale Geburtstagsüberraschung für Selina.">
+  <title>Für Selina ✨</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;600&family=Playfair+Display:ital@1&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=3">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <audio id="bg-music" loop preload="none"><source src="https://cdn.pixabay.com/download/audio/2022/12/28/audio_511974dcbe.mp3?filename=love-story-133282.mp3" type="audio/mpeg"></audio>
-  <div id="start-screen"><h1>FÜR SELINA</h1><p>Tippe, um euer Universum zu erwecken</p></div>
-  <canvas id="star-canvas"></canvas>
-  <div id="hint">Drehen • Zoom • Entdecken</div>
-  <div id="scene"><div id="core-glow"></div><canvas id="heart-canvas"></canvas></div>
-  <button id="reveal-btn" aria-label="Geschenk öffnen">Geschenk öffnen</button>
-  <div id="letter-overlay"><div id="letter-content">
-    <h1>Alles Liebe zum<br><span>14. Geburtstag!</span></h1>
-    <p>Meine liebste Selina,</p>
-    <p>Weil ich oft nicht die richtigen Worte finde, habe ich dieses Herz fur dich gemacht. Jedes Wort darin steht fur das, was ich an dir liebe und fur unsere schonsten Erinnerungen -wie unseren Kinotag in Passau.</p>
-    <p>Egal, ob du frohlich bist, mal traurig, ein bisschen sauer oder einfach total aufgedreht - ich liebe jede deiner Launen. Du machst jeden meiner Tage besonders. Danke, dass du an meiner Seite bist.</p>
-    <p>Ich wünsche dir den magischsten Geburtstag, den du dir vorstellen kannst.</p>
-    <p class="signature">In Liebe, dein Christian ❤️</p>
-  </div></div>
-  <script src="js/stars.js?v=3" defer></script>
-  <script src="js/heart.js?v=3" defer></script>
-  <script src="js/app.js?v=3" defer></script>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+  <div class="stars" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="Zur Startseite">S<span>✦</span></a>
+    <a class="top-link" href="#wishes">Für dich <span>↓</span></a>
+  </header>
+
+  <main id="top">
+    <section class="hero section-shell">
+      <div class="eyebrow"><span class="pulse-dot"></span> Eine Nachricht nur für dich</div>
+      <h1>Happy Birthday,<br><em>Selina.</em></h1>
+      <p class="hero-copy">Heute geht es nur um dich. Um dein Lächeln, deine Energie und all die schönen Momente, die noch vor dir liegen.</p>
+      <button class="primary-button surprise-button" type="button">
+        <span>Deine Überraschung öffnen</span><span class="button-arrow">↗</span>
+      </button>
+      <div class="scroll-hint"><span class="scroll-line"></span> Scroll, wenn du bereit bist</div>
+    </section>
+
+    <section class="message-section section-shell" id="wishes">
+      <div class="section-label">01 / Ein paar Worte</div>
+      <div class="message-grid">
+        <div>
+          <h2>Du machst die Welt<br><em>ein bisschen heller.</em></h2>
+        </div>
+        <div class="message-text">
+          <p>Manche Menschen bringen gute Laune mit, ohne es überhaupt zu versuchen. Du bist genau so ein Mensch.</p>
+          <p>Ich hoffe, dein neues Lebensjahr wird voller Abenteuer, ehrlicher Lacher und kleiner Momente, die sich riesig anfühlen.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cards-section section-shell">
+      <div class="section-label">02 / Heute wünsche ich dir</div>
+      <div class="wish-cards">
+        <article class="wish-card card-pink"><span class="card-number">01</span><span class="card-icon">✦</span><h3>Mut</h3><p>für alles, was du dir vornimmst.</p></article>
+        <article class="wish-card card-gold"><span class="card-number">02</span><span class="card-icon">☼</span><h3>Glück</h3><p>in den großen und kleinen Dingen.</p></article>
+        <article class="wish-card card-blue"><span class="card-number">03</span><span class="card-icon">♡</span><h3>Liebe</h3><p>von den Menschen, die dich feiern.</p></article>
+      </div>
+    </section>
+
+    <section class="closing section-shell">
+      <div class="closing-mark">✦</div>
+      <h2>Dein Tag.<br><em>Dein Jahr.</em></h2>
+      <p>Mach es zu etwas ganz Besonderem.</p>
+      <button class="outline-button surprise-button" type="button">Noch einmal feiern <span>✦</span></button>
+    </section>
+  </main>
+
+  <footer class="footer section-shell"><span>Made with love for Selina</span><span>© <span id="year"></span></span></footer>
+  <div class="toast" role="status" aria-live="polite">Alles Gute, Selina! 🎉</div>
+  <script src="js/app.js"></script>
 </body>
 </html>
