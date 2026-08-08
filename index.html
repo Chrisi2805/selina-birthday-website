@@ -2,41 +2,50 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#010103">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Für Selina ❤️</title>
+  <meta name="description" content="Ein interaktives 3D-Geburtstagsgeschenk für Selina.">
+  <meta property="og:title" content="Für Selina ❤️">
+  <meta property="og:description" content="Ein interaktives 3D-Geburtstagsgeschenk.">
+  <meta name="theme-color" content="#010103">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.85em' font-size='85'%3E%E2%9D%A4%EF%B8%8F%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Montserrat:wght@300;400;700&family=Playfair+Display:wght@300;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;600&family=Playfair+Display:ital@1&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <canvas id="star-canvas" aria-hidden="true"></canvas>
+  <audio id="bg-music" loop preload="none">
+    <source src="https://cdn.pixabay.com/download/audio/2022/12/28/audio_511974dcbe.mp3?filename=love-story-133282.mp3" type="audio/mpeg">
+  </audio>
 
-  <section id="start-screen" aria-label="Geburtstagsseite starten">
-    <h1>Für Selina ❤️</h1>
-    <p>Klicke irgendwo, um die Überraschung zu starten</p>
-  </section>
+  <div id="start-screen">
+    <h1>FÜR SELINA</h1>
+    <p>Tippe, um euer Universum zu erwecken</p>
+  </div>
 
-  <main id="scene">
-    <div id="core-glow" aria-hidden="true"></div>
-    <canvas id="heart-canvas" aria-label="3D-Herz aus Worten"></canvas>
-    <div id="hint">Ziehe zum Drehen · Mausrad zum Zoomen</div>
-    <button id="reveal-btn" type="button">Deine Überraschung</button>
+  <canvas id="star-canvas"></canvas>
+  <div id="hint">Drehen • Zoom • Entdecken</div>
 
-    <div id="letter-overlay">
-      <article id="letter-content">
-        <h1>Alles Gute, <span>Selina</span> ❤️</h1>
-        <p>Heute geht es nur um dich – um dein Lachen, deine Art und all die schönen Momente, die wir miteinander haben.</p>
-        <p>Ich wünsche dir von Herzen einen wunderschönen Geburtstag und ganz viele Momente, an die du dich noch lange erinnern wirst.</p>
-        <p>Danke, dass du so ein besonderer Mensch bist. Ich hoffe, dieses kleine Geschenk bringt dir genauso viel Freude, wie es mir gemacht hat, es für dich zu bauen.</p>
-        <p class="signature">Für immer dein ❤️</p>
-      </article>
+  <div id="scene">
+    <div id="core-glow"></div>
+    <canvas id="heart-canvas"></canvas>
+  </div>
+
+  <button id="reveal-btn" aria-label="Geschenk öffnen">Geschenk öffnen</button>
+
+  <div id="letter-overlay">
+    <div id="letter-content">
+      <h1>Alles Liebe zum<br><span>14. Geburtstag!</span></h1>
+      <p>Meine liebste Selina,</p>
+      <p>Weil ich oft nicht die richtigen Worte finde, habe ich dieses Herz fur dich gemacht. Jedes Wort darin steht fur das, was ich an dir liebe und fur unsere schonsten Erinnerungen -wie unseren Kinotag in Passau.</p>
+      <p>Egal, ob du frohlich bist, mal traurig, ein bisschen sauer oder einfach total aufgedreht - ich liebe jede deiner Launen. Du machst jeden meiner Tage besonders. Danke, dass du an meiner Seite bist.</p>
+      <p>Ich wünsche dir den magischsten Geburtstag, den du dir vorstellen kannst.</p>
+      <p class="signature">In Liebe, dein Christian ❤️</p>
     </div>
-  </main>
+  </div>
 
-  <script src="stars.js"></script>
-  <script src="heart.js"></script>
-  <script src="app.js"></script>
+  <script src="stars.js" defer></script>
+  <script src="heart.js" defer></script>
+  <script src="app.js" defer></script>
 </body>
 </html>
